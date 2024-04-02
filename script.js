@@ -103,6 +103,59 @@ class LinkedList {
 
     }
 
+
+    //tail() to get the last node in the list
+    tail() {
+
+        if (this.size === 0) {
+            console.error("list is empty")
+            return;
+        };
+        if (this.size === 1) return this.head;
+
+        let current = this.head;
+        while (current.nextNode) {
+            current = current.nextNode;
+        }
+
+        return current;
+
+    }
+
+    //at(index) to returns the node at a particular index
+    at(index) {
+        // is the size empty? console.error and then return
+        // is the index 0? Return this.head
+
+        if (this.size === 0) {
+            console.error("empty linked list");
+            return
+        }
+
+        if (index === 0) {
+            return this.head;
+        }
+
+        // initiate current, loop while iterator is less than index
+        let current = this.head;
+        let l = 0
+        while (l < index) {
+            current = current.nextNode
+            l++
+        }
+        return current
+    }
+
+    //pop() to remove the last element from the list
+    pop() {
+        
+    }
+
+    //contains(value) - true/false if the value is/isn't in the list
+
+    //find(value)
+
+
     //print list values
     printListData() {
         let current = this.head;
@@ -116,6 +169,7 @@ class LinkedList {
 
 const linkedlist = new LinkedList();
 
+
 linkedlist.prepend(100)
 linkedlist.prepend(200)
 linkedlist.prepend(3040)
@@ -124,14 +178,23 @@ linkedlist.insertAt(69, 4)
 
 linkedlist.printListData()
 
-console.log ("########")
-console.log("BIG ASS LINE BREAK")
+console.log("########")
+console.log("########")
 console.log("########")
 
-// linkedlist.removeAt()
+console.log("head:", linkedlist.head)
+console.log("tail:", linkedlist.tail())
+
+console.log(linkedlist.at(3))
+
+// console.log ("########")
+// console.log("BIG ASSLINE BREAK")
+// console.log("########")
+
+// // linkedlist.removeAt()
 
 
-// console.log(linkedlist.size)
+// // console.log(linkedlist.size)
 
 
-linkedlist.printListData()
+// linkedlist.printListData()
