@@ -170,7 +170,7 @@ class LinkedList {
         if (this.size === 0) {return false}
 
         let current = this.head;
-        while (current.nextNode) {
+        while (current) {
 
             if (current.value === value) {return true}
             current = current.nextNode;
@@ -183,6 +183,26 @@ class LinkedList {
 
 
     //find(value)
+    find(value) {
+        //if this.size === 0 - console.error(Empty list) + return
+
+        if (this.size === 0){
+            console.error("List is empty")
+            return
+        }
+        // initiate index at zero
+        // initiate current at this.head
+
+        let index = 0;
+        let current = this.head;
+        while(current){
+            if (current.value === value) {return index}
+
+            current = current.nextNode;
+            index++;
+        }
+        return null
+    }
 
 
     //print list values
@@ -211,7 +231,8 @@ linkedlist.insertAt(69, 4)
 
 linkedlist.printListData()
 
-console.log(linkedlist.contains(10))
+console.log("Value exists at:", linkedlist.find(304))
+console.log(linkedlist.contains(3040))
 
 console.log("########")
 console.log("########")
