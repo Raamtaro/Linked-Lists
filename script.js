@@ -121,8 +121,6 @@ class LinkedList {
 
     //at(index) to returns the node at a particular index
     at(index) {
-        // is the size empty? console.error and then return
-        // is the index 0? Return this.head
 
         if (this.size === 0) {
             console.error("empty linked list");
@@ -145,12 +143,6 @@ class LinkedList {
 
     //pop() to remove the last element from the list
     pop() {
-        //if the size is zero, then console.error + return
-        //if the size is one, then this.head.nextNode = null
-
-        //Loop through until !current.nextNode
-        //Make sure to keep setting the previous node
-        //Set the previousNode.nextNode = null, then it becomes the new tail
 
         if (this.size === 0) {
             console.error("List is empty")
@@ -173,6 +165,22 @@ class LinkedList {
     }
 
     //contains(value) - true/false if the value is/isn't in the list
+    contains(value) {
+
+        if (this.size === 0) {return false}
+
+        let current = this.head;
+        while (current.nextNode) {
+
+            if (current.value === value) {return true}
+            current = current.nextNode;
+
+        }
+
+        return false;
+
+    }
+
 
     //find(value)
 
@@ -198,10 +206,12 @@ linkedlist.append(402)
 linkedlist.insertAt(69, 4)
 
 
-linkedlist.pop()
-linkedlist.pop()
+// linkedlist.pop()
+// linkedlist.pop()
 
 linkedlist.printListData()
+
+console.log(linkedlist.contains(10))
 
 console.log("########")
 console.log("########")
@@ -211,15 +221,3 @@ console.log("head:", linkedlist.head)
 console.log("tail:", linkedlist.tail())
 
 console.log(linkedlist.at(3))
-
-// console.log ("########")
-// console.log("BIG ASSLINE BREAK")
-// console.log("########")
-
-// // linkedlist.removeAt()
-
-
-// // console.log(linkedlist.size)
-
-
-// linkedlist.printListData()
