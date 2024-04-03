@@ -23,9 +23,6 @@ class LinkedList {
         let node = new Node(value);
         let current;
 
-        //If the list is empty, then the new Node becomes the head
-        //else, loop through the entire list and then add the new node to the end of it
-
         if (!this.head) {
             this.head = node;
         } else {
@@ -148,7 +145,31 @@ class LinkedList {
 
     //pop() to remove the last element from the list
     pop() {
-        
+        //if the size is zero, then console.error + return
+        //if the size is one, then this.head.nextNode = null
+
+        //Loop through until !current.nextNode
+        //Make sure to keep setting the previous node
+        //Set the previousNode.nextNode = null, then it becomes the new tail
+
+        if (this.size === 0) {
+            console.error("List is empty")
+            return
+        }
+        if (this.size === 1) {
+            this.head = null
+            return
+        }
+
+        let current = this.head;
+        let previous;
+
+        while (current.nextNode) {
+            previous = current;
+            current = current.nextNode;
+        }
+        previous.nextNode = null;
+        this.size--;
     }
 
     //contains(value) - true/false if the value is/isn't in the list
@@ -175,6 +196,10 @@ linkedlist.prepend(200)
 linkedlist.prepend(3040)
 linkedlist.append(402)
 linkedlist.insertAt(69, 4)
+
+
+linkedlist.pop()
+linkedlist.pop()
 
 linkedlist.printListData()
 
